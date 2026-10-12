@@ -1,0 +1,6 @@
+ЛР10. B — связный список
+$ python -m src.lab10.linked_list
+Вывод:
+SinglyLinkedList([1, 2, 3])
+После удаления: SinglyLinkedList([1, 3])
+Перебор: [1, 3] Длина: 2

@@ -1,0 +1,79 @@
+import csv
+from pathlib import Path
+from src.lab08.models import Student
+
+
+class Group:
+    """Простое CSV-хранилище студентов. Каждая операция читает весь файл."""
+
+    def __init__(self, storage_path: str):
+        self.path = Path(storage_path)
+        self.header = ["fio", "birthdate", "group", "gpa"]
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        if not self.path.exists():
+            self._write_all([])
+        self.list()
+
+    def list(self) -> list[Student]:
+        """Читает и проверяет все записи."""
+        students = []
+        with self.path.open(encoding="utf-8", newline="") as file:
+            reader = csv.DictReader(file)
+            if reader.fieldnames != self.header:
+                raise ValueError("Неверный заголовок CSV")
+            for row in reader:
+                if None in row or any(value is None for value in row.values()):
+                    raise ValueError("Неверное число полей CSV")
+                row["gpa"] = float(row["gpa"])
+                students.append(Student.from_dict(row))
+        return students
+
+    def _write_all(self, students):
+        """Перезаписывает файл заголовком и записями."""
+        for student in students:
+            student.__post_init__()
+        with self.path.open("w", encoding="utf-8", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=self.header)
+            writer.writeheader()
+            for student in students:
+                writer.writerow(student.to_dict())
+
+    def add(self, student: Student) -> None:
+        """Добавляет студента. Совпадающие ФИО разрешены."""
+        if not isinstance(student, Student):
+            raise TypeError("Нужен объект Student")
+        students = self.list()
+        students.append(student)
+        self._write_all(students)
+
+    def find(self, substr: str) -> list[Student]:
+        """Ищет подстроку ФИО без учёта регистра."""
+        result = []
+        for student in self.list():
+            if substr.casefold() in student.fio.casefold():
+                result.append(student)
+        return result
+
+    def remove(self, fio: str) -> None:
+        """Удаляет все точные совпадения ФИО. Отсутствие — без ошибки."""
+        result = []
+        for student in self.list():
+            if student.fio != fio:
+                result.append(student)
+        self._write_all(result)
+
+    def update(self, fio: str, **fields) -> None:
+        """Обновляет все совпадения. Если ФИО не найдено — ValueError."""
+        if not set(fields).issubset(self.header):
+            raise ValueError("Неизвестное поле студента")
+        students = self.list()
+        found = False
+        for i, student in enumerate(students):
+            if student.fio == fio:
+                data = student.to_dict()
+                data.update(fields)
+                students[i] = Student.from_dict(data)
+                found = True
+        if not found:
+            raise ValueError("Студент не найден")
+        self._write_all(students)

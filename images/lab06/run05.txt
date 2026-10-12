@@ -1,0 +1,4 @@
+ЛР6. csv2xlsx
+$ python -m src.lab06.cli_convert csv2xlsx --in data/samples/people.csv --out data/out/cli_people.xlsx
+Вывод:
+Сохранено: data/out/cli_people.xlsx
