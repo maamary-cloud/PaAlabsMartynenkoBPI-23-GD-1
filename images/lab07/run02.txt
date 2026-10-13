@@ -1,5 +1,0 @@
-ЛР7. C — проверка стиля
-$ python -m black --check .
-Вывод:
-All done! ✨ 🍰 ✨
-39 files would be left unchanged.
