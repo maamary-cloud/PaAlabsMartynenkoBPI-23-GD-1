@@ -1,9 +1,0 @@
-ЛР10. A — Stack и Queue
-$ python -m src.lab10.structures
-Вывод:
-Stack peek: 2
-Stack pop: 2
-Stack len: 1 empty: False
-Queue peek: 1
-Queue dequeue: 1
-Queue len: 1 empty: False
