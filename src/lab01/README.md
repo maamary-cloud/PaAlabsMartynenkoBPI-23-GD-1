@@ -74,7 +74,7 @@ price: discount: vat:
 ### Задание 4 — минуты
 
 ```powershell
-python src/lab01/ex04.py
+python src/lab01/04_minutes_to_hhmm.py
 ```
 
 Ввод:
@@ -89,12 +89,12 @@ python src/lab01/ex04.py
 Минуты: 2:15
 ```
 
-![ЛР1, Задание 4 — минуты: изображение фактического вывода](../../images/lab01/run04.png)
+![ЛР1, Задание 4 — минуты: изображение фактического вывода](../../images/lab01/04_minutes_to_hhmm.png)
 
 ### Задание 5 — ФИО
 
 ```powershell
-python src/lab01/ex05.py
+python src/lab01/05_initials_and_len.py
 ```
 
 Ввод:
@@ -110,11 +110,11 @@ python src/lab01/ex05.py
 Длина (символов): 20
 ```
 
-![ЛР1, Задание 5 — ФИО: изображение фактического вывода](../../images/lab01/run05.png)
+![ЛР1, Задание 5 — ФИО: изображение фактического вывода](../../images/lab01/05_initials_and_len.png)
 
 ## Код
 
-### src/lab01/ex01.py
+### src/lab01/01_greeting.py
 
 ```python
 name = input("Имя: ")
@@ -123,7 +123,7 @@ print(f"Привет, {name}! Через год тебе будет {age + 1}.")
 
 ```
 
-### src/lab01/ex02.py
+### src/lab01/02_sum_avg.py
 
 ```python
 a = float(input("a: ").replace(",", "."))
@@ -132,7 +132,7 @@ print(f"sum={a + b:.2f}; avg={(a + b) / 2:.2f}")
 
 ```
 
-### src/lab01/ex03.py
+### src/lab01/03_discount_vat.py
 
 ```python
 price = float(input("price: ").replace(",", "."))
@@ -146,7 +146,7 @@ print(f"Итого к оплате:    {base + vat_amount:.2f} ₽")
 
 ```
 
-### src/lab01/ex04.py
+### src/lab01/04_minutes_to_hhmm.py
 
 ```python
 m = int(input("Минуты: "))
@@ -154,7 +154,7 @@ print(f"{m // 60}:{m % 60:02d}")
 
 ```
 
-### src/lab01/ex05.py
+### src/lab01/05_initials_and_len.py
 
 ```python
 parts = input("ФИО: ").split()
