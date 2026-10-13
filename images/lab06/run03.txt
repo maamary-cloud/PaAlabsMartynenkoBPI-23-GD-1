@@ -1,4 +1,0 @@
-ЛР6. json2csv
-$ python -m src.lab06.cli_convert json2csv --in data/samples/people.json --out data/out/cli_people.csv
-Вывод:
-Сохранено: data/out/cli_people.csv
