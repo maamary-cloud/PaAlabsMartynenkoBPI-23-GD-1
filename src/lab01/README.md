@@ -11,7 +11,7 @@
 ### Задание 1 — приветствие
 
 ```powershell
-python src/lab01/ex01.py
+python src/lab01/01_greeting.py
 ```
 
 Ввод:
