@@ -16,7 +16,7 @@ name,age,city
 Боб,25,СПб
 ```
 
-![ЛР5, A — JSON в CSV: изображение фактического вывода](../../images/lab05/run01.png)
+![ЛР5, A — JSON в CSV: изображение фактического вывода](../../images/lab05/json_csv.png)
 
 ### A — CSV в JSON
 
