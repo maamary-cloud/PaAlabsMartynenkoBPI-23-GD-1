@@ -63,7 +63,8 @@ python src/lab01/03_discount_vat.py
 Фактический вывод:
 
 ```text
-price: discount: vat: База после скидки: 900.00 ₽
+price: discount: vat:
+База после скидки: 900.00 ₽
 НДС:               180.00 ₽
 Итого к оплате:    1080.00 ₽
 ```
