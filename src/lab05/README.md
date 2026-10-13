@@ -41,7 +41,7 @@ python -c "from src.lab05.json_csv import csv_to_json; csv_to_json('data/samples
 ]
 ```
 
-![ЛР5, A — CSV в JSON: изображение фактического вывода](../../images/lab05/run02.png)
+![ЛР5, A — CSV в JSON: изображение фактического вывода](../../images/lab05/csv_json.png)
 
 ### B — CSV в XLSX
 
@@ -57,7 +57,7 @@ python -c "from src.lab05.csv_xlsx import csv_to_xlsx; from openpyxl import load
 Ширины: [('A', 8.0), ('B', 8.0), ('C', 8.0)]
 ```
 
-![ЛР5, B — CSV в XLSX: изображение фактического вывода](../../images/lab05/run03.png)
+![ЛР5, B — CSV в XLSX: изображение фактического вывода](../../images/lab05/csv_xlsx.png)
 
 ## Код
 
